@@ -1,4 +1,3 @@
-
 class UserData {
 	String userId
 	String password
