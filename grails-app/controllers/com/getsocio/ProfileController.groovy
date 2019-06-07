@@ -128,7 +128,7 @@ class ProfileController {
     def userProfile() {
         def userId = (String) session.getAttribute("user")
         if (userId) {
-            def user = UserData.findByUserId(userId)
+            def user = User.findByUserId(userId)
             render(view: 'show', model: [profileInstance: user?.profile, user: user])
         }
     }

@@ -1,5 +1,5 @@
 <%@page import="com.getsocio.Role"%>
-<%@ page import="com.getsocio.UserData" %>
+<%@ page import="com.getsocio.User" %>
 
 
 
@@ -54,7 +54,7 @@
 		<g:message code="userData.following.label" default="Following" />
 		
 	</label>
-	<g:select name="following" from="${com.getsocio.UserData.list()}" multiple="multiple" optionKey="id" size="5" value="${userDataInstance?.following*.id}" class="many-to-many" noSelection="['null': '']"/>
+	<g:select name="following" from="${com.getsocio.User.list()}" multiple="multiple" optionKey="id" size="5" value="${userDataInstance?.following*.id}" class="many-to-many" noSelection="['null': '']"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: userDataInstance, field: 'posts', 'error')} ">

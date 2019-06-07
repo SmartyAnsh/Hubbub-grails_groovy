@@ -10,7 +10,7 @@ class TagController {
         def tags
         def userId = (String) session.getAttribute("user")
         if (userId) {
-            user = UserData.findByUserId(userId)
+            user = User.findByUserId(userId)
             tags = Tag.findByUser(user)
         }
         render(view: 'myTags', model: [tags: tags, user: user])

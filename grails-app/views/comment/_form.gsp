@@ -13,7 +13,7 @@
 		<g:message code="commentByUserOnPost.byUser.label" default="By User" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="byUser" name="byUser.id" from="${com.getsocio.UserData.list()}" optionKey="id" required="" value="${commentByUserOnPostInstance?.byUser?.id}" class="many-to-one"/>
+	<g:select id="byUser" name="byUser.id" from="${com.getsocio.User.list()}" optionKey="id" required="" value="${commentByUserOnPostInstance?.byUser?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: commentByUserOnPostInstance, field: 'onPost', 'error')} required">

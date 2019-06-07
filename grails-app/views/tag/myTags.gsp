@@ -1,4 +1,4 @@
-<%@page import="com.getsocio.UserData"%>
+<%@page import="com.getsocio.User"%>
 <%@ page contentType="text/html;charset=ISO-8859-1"%>
 <html>
 <head>

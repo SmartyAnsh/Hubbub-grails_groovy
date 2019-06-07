@@ -1,6 +1,6 @@
 package com.getsocio
 
-class UserDataService {
+class UserService {
 
     PostService postService
     def grailsApplication
@@ -44,7 +44,7 @@ class UserDataService {
     }
 
     /**
-     * fetches home page data like Profile Info, Wall (Posts & Comments)
+     * fetches user page data like Profile Info, Wall (Posts & Comments)
      * followers etc
      * @param params
      * @param session
@@ -62,7 +62,7 @@ class UserDataService {
         Boolean fromWall = false
         if (params?.name) {
             profile = Profile.findByFullName(params?.name)
-            userId = UserData.findByProfile(profile).userId
+            userId = User.findByProfile(profile).userId
             fromWall = true
         } else {
             userId = (String) session.getAttribute("user")
@@ -70,11 +70,11 @@ class UserDataService {
         def postTimeList
         def postUser = []
         if (userId) {
-            userName = UserData.findByUserId(userId)
+            userName = User.findByUserId(userId)
             followingUser = userName.following
             def followerProfiles = followingUser.each {
                 it
-                names = UserData.findByUserId(it.toString())
+                names = User.findByUserId(it.toString())
                 followingNames.add(names)
             }
             followingNames.each { def name ->
@@ -98,7 +98,7 @@ class UserDataService {
                 }
             }
             Collections.reverse(postUser)
-            followers = UserData.executeQuery('select users from UserData users join users.following follow1 where follow1.userId=?', [(String) userName])
+            followers = User.executeQuery('select users from User users join users.following follow1 where follow1.userId=?', [(String) userName])
         }
         if (followingNames) {
             followingNames.sort { following -> following?.profile?.fullName }
@@ -122,9 +122,9 @@ class UserDataService {
         def userId = (String) session.getAttribute('user')
         def user
         if (userId) {
-            user = UserData.findByUserId(userId);
+            user = User.findByUserId(userId);
         }
-        def userFollowed = UserData.executeQuery('select user from UserData user join user.profile profile where profile.id=?', [params.id.toLong()])
+        def userFollowed = User.executeQuery('select user from User user join user.profile profile where profile.id=?', [params.id.toLong()])
         if (params.follow) {
             user.addToFollowing(userFollowed.get(0)).save()
         }
@@ -151,9 +151,9 @@ class UserDataService {
             securityQues = 'QUEST3'
         }
         def newUser
-        def profile = new Profile(fullName: params?.signUpUsername, country: params?.country, photo: defaultImage.getBytes()).save()
+        def profile = new Profile(fullName: params?.signUpUsername, country: params?.country).save()
         try {
-            newUser = new UserData(userId: params?.userId, password: params.signUpPassword, role: Role.USER, profile: profile, securityQues: securityQues, securityAns: params?.securityAnswer).save(flush: true)
+            newUser = new User(userId: params?.userId, password: params.signUpPassword, role: Role.USER, profile: profile, securityQues: securityQues, securityAns: params?.securityAnswer).save(flush: true)
             session.setAttribute('user', newUser)
             session.setAttribute('role', newUser?.role)
             session.setAttribute('fullName', params?.signUpUsername)
@@ -172,7 +172,7 @@ class UserDataService {
     def checkUserId(params) {
         def availableResponse = [:]
         def isAvailable = false
-        def userCount = UserData.findAllByUserIdLike(params.userId).size()
+        def userCount = User.findAllByUserIdLike(params.userId).size()
         if (userCount > 0) {
             isAvailable = false
         } else {

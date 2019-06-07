@@ -23,6 +23,6 @@
 		<g:message code="post.user.label" default="User" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="user" name="user.id" from="${com.getsocio.UserData.list()}" optionKey="id" required="" value="${postInstance?.user?.id}" class="many-to-one"/>
+	<g:select id="user" name="user.id" from="${com.getsocio.User.list()}" optionKey="id" required="" value="${postInstance?.user?.id}" class="many-to-one"/>
 </div>
 

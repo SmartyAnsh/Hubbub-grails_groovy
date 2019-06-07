@@ -25,7 +25,7 @@ class ProfileService {
             profile = Profile.findByFullName(profileName)
             // showProfileFromLink = true
         }
-        follower = UserData.findByUserId(userId).following?.profile?.fullName
+        follower = User.findByUserId(userId).following?.profile?.fullName
         follower.each {
             it
             if (it == profile?.fullName) {

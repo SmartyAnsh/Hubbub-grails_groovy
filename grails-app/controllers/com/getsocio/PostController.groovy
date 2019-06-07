@@ -12,7 +12,7 @@ class PostController {
         def profile
         def user
         def userId = (String) session.getAttribute("user")
-        user = UserData.findByUserId(userId)
+        user = User.findByUserId(userId)
         def post = new Post(params)
         user.addToPosts(post)
         if (user.save(flush: true)) {
@@ -30,7 +30,7 @@ class PostController {
         def user
         def userId = (String) session.getAttribute('user')
         if (userId) {
-            user = UserData.findByUserId(userId)
+            user = User.findByUserId(userId)
         }
         def userPostsList = user?.posts.toList()
         Collections.reverse(userPostsList)

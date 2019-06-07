@@ -1,11 +1,11 @@
 <%@page import="com.getsocio.Role"%>
-<%@ page import="com.getsocio.UserData"%>
+<%@ page import="com.getsocio.User"%>
 <!doctype html>
 <html>
 <head>
 <meta name="layout" content="userLayout">
 <g:set var="entityName"
-	value="${message(code: 'userData.label', default: 'UserData')}" />
+	value="${message(code: 'userData.label', default: 'User')}" />
 <title><g:message code="default.show.label" args="[entityName]" /></title>
 </head>
 <body>

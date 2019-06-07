@@ -2,7 +2,7 @@ package com.getsocio
 
 class Profile {
 
-    static belongsTo = UserData
+    static belongsTo = User
 
     byte[] photo
     String fullName

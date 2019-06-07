@@ -1,10 +1,10 @@
-<%@ page contentType="text/html;charset=ISO-8859-1"%>
+<%@ page import="com.getsocio.User" contentType="text/html;charset=ISO-8859-1"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="layout" content="userLayout" />
 <g:set var="entityName"
-	value="${message(code: 'userData.label', default: 'UserData')}" />
+	value="${message(code: 'userData.label', default: 'User')}" />
 <title>Results</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
 		<h1>Results</h1>
 		<p>
 			Searched
-			${com.getsocio.UserData.count()}
+			${com.getsocio.User.count()}
 			records for items matching <em> ${term}
 			</em>. <br> Found <strong> ${users.size()}
 			</strong> hits. <br> <br>

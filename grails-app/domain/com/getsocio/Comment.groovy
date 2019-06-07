@@ -3,10 +3,10 @@ package com.getsocio
 class Comment {
 
     String commentByUser
-    UserData byUser
+    User byUser
     Post onPost
 
-    static belongsTo = [Post, UserData]
+    static belongsTo = [Post, User]
 
     static constraints = {
         commentByUser(blank: false)

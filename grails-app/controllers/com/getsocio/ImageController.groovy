@@ -13,20 +13,20 @@ class ImageController {
         def profile
         if (params.fromDetailsDiv || params.fromDifferentWall) {
             if (!params?.id) {
-                user = UserData.findByUserId((String) session.getAttribute("user"))
+                user = User.findByUserId((String) session.getAttribute("user"))
             } else {
                 profile = Profile.findByFullName((String) params?.id)
-                user = UserData.findByProfile(profile)
+                user = User.findByProfile(profile)
 
             }
         }
         if (params?.fromWall || params?.fullNameParamId) {
             profile = Profile.findByFullName((String) params?.id)
-            user = UserData.findByProfile(profile)
+            user = User.findByProfile(profile)
         }
         if (params?.profileShowPage || params?.profileListPage) {
             profile = Profile.findById(params?.id)
-            user = UserData.findByProfile(profile)
+            user = User.findByProfile(profile)
         }
         if (user?.profile?.photo) {
             response.setContentLength(user.profile.photo.length)
@@ -41,7 +41,7 @@ class ImageController {
     def removeImage() {
         Boolean imageRemoved = false
         def profile = Profile.findByFullName((String) params?.userId)
-        def user = UserData.findByProfile(profile)
+        def user = User.findByProfile(profile)
         String pathOfDefaultImage = grailsApplication.config.grails.imagePath + "no-image.png"
         File defaultImage = new File(pathOfDefaultImage)
         if (defaultImage) {

@@ -1,6 +1,6 @@
 package com.getsocio
 
-class UserData {
+class User {
     String userId
     String password
     Role role
@@ -16,8 +16,8 @@ class UserData {
         password(size: 6..8, validator: { passwd, user -> passwd != user.userId })
         homepage(url: true, nullable: true)
         profile(nullable: true)
-        //role(nullable: true)
-        //securityQues(blank: false, nullable: false)
+        role(nullable: true)
+        securityQues(blank: false, nullable: false)
         securityAns(blank: false, nullable: false)
     }
 
@@ -26,7 +26,7 @@ class UserData {
         posts sort: 'dateCreated'
     }
 
-    static hasMany = [posts: Post, tags: Tag, following: UserData]
+    static hasMany = [posts: Post, tags: Tag, following: User]
 
     String toString() {
         "${userId}"

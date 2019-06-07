@@ -112,7 +112,7 @@ class CommentController {
     /*function to save comments on post */
 
     def saveCommentOfUser(params) {
-        def user = UserData.findByUserId((String) session.getAttribute('user'))
+        def user = User.findByUserId((String) session.getAttribute('user'))
         Boolean isSave = false
         def comment
         def post

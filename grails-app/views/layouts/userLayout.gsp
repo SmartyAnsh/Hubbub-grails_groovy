@@ -13,8 +13,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title><g:layoutTitle default="Welcome" /></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet"
-	href="${resource(dir: 'css', file: 'errors.css')}">
 <link rel="shortcut icon"
 	href="${resource(dir: 'images', file: 'favicon.ico')}"
 	type="image/x-icon">
@@ -22,28 +20,19 @@
 	href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
 <link rel="apple-touch-icon" sizes="114x114"
 	href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
-<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}"
-	type="text/css">
-<link rel="stylesheet"
-	href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
-<script type="text/javascript"
-	src="${resource(dir:'js', file:'jquery-1.7.2.min.js') }"></script>
-<script type="text/javascript"
-	src="${resource(dir:'js', file:'jquery-1.7.2.js') }"></script>
-	
+    <asset:stylesheet src="application.css"/>
+    <asset:stylesheet src="main.css"/>
+    <asset:stylesheet src="mobile.css"/>
+    <asset:stylesheet src="errors.css"/>
+    <asset:javascript src="application.js"/>
+    <asset:javascript src="homePage.js"/>
 <g:layoutHead />
 <r:layoutResources />
 </head>
 <body>
-	<%--${session.getAttribute("user")}
-	${session.getAttribute("role")}	
-	--%>
-	<div id="grailsLogo" role="banner">
-		<a href=""><img
-			src="${resource(dir: 'images', file: 'grails_logo.png')}"
-			alt="Grails" /></a> <span style="font-size: 30px; font-family: cursive;">Social
-			Networking on Grails</span>
-	</div>
+<div id="grailsLogo" role="banner">
+	<span style="font-size: 20px;"><h1>Welcome to GetSocio - Social Networking on Grails</h1></span>
+</div>
 	<div class="nav" role="navigation">
 		<g:if
 			test="${session.getAttribute("role").equals(Role.ADMIN) && session.getAttribute("adminView") == true}">
@@ -67,11 +56,11 @@
 						<g:message code="Tags" />
 					</g:link></li>
 				<li><g:link class="search" action="search"
-						controller="userData">
+						controller="user">
 						<g:message code="Search" />
 					</g:link></li>
 				<li><g:link class="view" action="viewChange"
-						controller="UserData">
+						controller="User">
 						<g:if test="${session.getAttribute('adminView') == true }">
 					Change to User View
 					</g:if>
@@ -111,15 +100,15 @@
 						<g:message code="My Tags" />
 					</g:link></li>
 				<li><g:link class="search" action="search"
-						controller="userData">
+						controller="user">
 						<g:message code="Search" />
 					</g:link></li>
 				<li><g:if test="${session.getAttribute('adminView') == true }">
-						<g:link class="view" action="viewChange" controller="UserData">
+						<g:link class="view" action="viewChange" controller="User">
 					Change to User View
 					</g:link>
 					</g:if> <g:if test="${session.getAttribute('adminView') == false }">
-						<g:link class="view" action="viewChange" controller="UserData">
+						<g:link class="view" action="viewChange" controller="User">
 					Change to Admin View
 					</g:link>
 					</g:if></li>

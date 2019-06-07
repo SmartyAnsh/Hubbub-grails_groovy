@@ -5,7 +5,7 @@
 <meta name="layout" content="userLayout" />
 <title>Advance Search</title>
 <g:set var="entityName"
-	value="${message(code: 'userData.label', default: 'UserData')}" />
+	value="${message(code: 'userData.label', default: 'User')}" />
 <script type="text/javascript">
 	function validateSearch() {
 		$('#errorMessage').addClass('hideOnLoad')

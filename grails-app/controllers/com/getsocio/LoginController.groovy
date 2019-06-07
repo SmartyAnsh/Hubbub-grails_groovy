@@ -12,7 +12,7 @@ class LoginController {
         def user
         def userFullName
         def errorMessage
-        user = UserData.findByUserIdAndPassword(params?.username, params?.userPassword)
+        user = User.findByUserIdAndPassword(params?.username, params?.userPassword)
 
         if (user) {
             session.setAttribute("user", user)
@@ -67,12 +67,12 @@ class LoginController {
             securityQues = 'QUEST3'
         }
         if (securityQues && session.getAttribute('user') && session.getAttribute('fullName')) {
-            user = UserData.executeQuery('select user from UserData user join user.profile profile where profile.fullName =:fullName and user.userId = :userId and user.securityQues =:securityQues and user.securityAns = :securityAns and user.password = :password ', [userId: userId, fullName: fullName, securityQues: (SecurityQuestion) securityQues, securityAns: params.securityAns, password: params.oldPassword])
+            user = User.executeQuery('select user from User user join user.profile profile where profile.fullName =:fullName and user.userId = :userId and user.securityQues =:securityQues and user.securityAns = :securityAns and user.password = :password ', [userId: userId, fullName: fullName, securityQues: (SecurityQuestion) securityQues, securityAns: params.securityAns, password: params.oldPassword])
             if (user) {
                 isValid = true
             }
         } else {
-            user = UserData.executeQuery('select user from UserData user join user.profile profile where profile.fullName =:fullName and user.userId = :userId and user.securityQues =:securityQues and user.securityAns = :securityAns', [userId: userId, fullName: fullName, securityQues: (SecurityQuestion) securityQues, securityAns: params.securityAns])
+            user = User.executeQuery('select user from User user join user.profile profile where profile.fullName =:fullName and user.userId = :userId and user.securityQues =:securityQues and user.securityAns = :securityAns', [userId: userId, fullName: fullName, securityQues: (SecurityQuestion) securityQues, securityAns: params.securityAns])
             if (user) {
                 isValid = true
                 session.setAttribute("user", userId)
@@ -95,7 +95,7 @@ class LoginController {
         }
         def isUpdated
         if (params?.newPassword == params?.confirmPassword && params?.newPassword != "") {
-            def count = UserData.executeUpdate("update UserData user set user.password = :password where user.userId = :userId ", [userId: userId, password: params.newPassword])
+            def count = User.executeUpdate("update User user set user.password = :password where user.userId = :userId ", [userId: userId, password: params.newPassword])
             if (count > 0) {
                 isUpdated = true
             }
