@@ -37,7 +37,7 @@
 		<g:if
 			test="${session.getAttribute("role").equals(Role.ADMIN) && session.getAttribute("adminView") == true}">
 			<ul>
-				<li><g:link class="home" action="list" controller="userData">
+				<li><g:link class="home" action="list" controller="user">
 						<g:message code="Home" />
 					</g:link></li>
 				<li><g:link class="profile" action="list"
@@ -72,7 +72,7 @@
 						controller="login">
 						<g:message code="Logout" />
 					</g:link></li>
-					<li style="float: right; font-size: 13px"><g:link class="changePassword" url="../login/renderChangePassword">
+					<li style="float: right; font-size: 13px"><g:link class="changePassword" url="login/renderChangePassword">
 						<g:message code="Change Password" /></g:link>
 					</li>
 				
@@ -84,7 +84,7 @@
 			test="${session.getAttribute("role").equals(Role.USER) || session.getAttribute("adminView") == false}">
 			<ul>
 				<li><g:link class="home" action="homePage"
-						controller="userData">
+						controller="user">
 						<g:message code="Home" />
 					</g:link></li>
 				<li><g:link class="profile" action="userProfile"
@@ -117,7 +117,7 @@
 						controller="login">
 						<g:message code="Logout" />
 					</g:link></li>
-				<li style="float: right; font-size: 13px"><g:link class="changePassword" url="../login/renderChangePassword">
+				<li style="float: right; font-size: 13px"><g:link class="changePassword" url="login/renderChangePassword">
 						<g:message code="Change Password" /></g:link>
 					</li>
 				
@@ -135,6 +135,6 @@
 	</html>
 </g:if>
 <g:else>
-	<%--<g:link href="../login/index">Click here to login again</g:link>
+	<%--<g:link href="login/index">Click here to login again</g:link>
 --%>
 </g:else>

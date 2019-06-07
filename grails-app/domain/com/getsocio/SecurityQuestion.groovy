@@ -6,7 +6,10 @@ class SecurityQuestion {
     static final String QUEST2 = "What is the make of your first bike?"
     static final String QUEST3 = "What is your birth city?"
 
+    String question
+
     static constraints = {
+        question nullable: false, blank: false
     }
 
     static values() {

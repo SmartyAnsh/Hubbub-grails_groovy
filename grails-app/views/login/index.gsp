@@ -129,7 +129,7 @@ p {
 			<span
 				style="padding-left: 20%; font-weight: bold; font-family: sans-serif; font-size: 20px">New
 				User</span>
-			<g:form action="newUserSignUp" controller="UserData">
+			<g:form action="newUserSignUp" controller="user">
 			<g:hiddenField name="contextPath" id="contextPath" value="${request.getContextPath() }"/>
 				<div id="alert" style="text-indent: 2.2em; color: #CC0000;"></div>
 				<table>

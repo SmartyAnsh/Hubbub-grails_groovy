@@ -36,7 +36,7 @@
 						class="property-label"><g:message
 								code="commentByUserOnPost.byUser.label" default="By User" /></span> <span
 						class="property-value" aria-labelledby="byUser-label"><g:link
-								controller="userData" action="show"
+								controller="user" action="show"
 								id="${commentByUserOnPostInstance?.byUser?.id}">
 								${commentByUserOnPostInstance?.byUser?.encodeAsHTML()}
 							</g:link></span></li>

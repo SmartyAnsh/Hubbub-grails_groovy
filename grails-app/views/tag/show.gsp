@@ -48,7 +48,7 @@
 						class="property-label"><g:message
 								code="taggingOfUser.user.label" default="User" /></span> <span
 						class="property-value" aria-labelledby="user-label"><g:link
-								controller="userData" action="show"
+								controller="user" action="show"
 								id="${taggingOfUserInstance?.user?.id}">
 								${taggingOfUserInstance?.user?.encodeAsHTML()}
 							</g:link></span></li>

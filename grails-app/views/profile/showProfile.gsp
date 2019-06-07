@@ -81,7 +81,7 @@
 			<g:if test="${profile != null && isFollowing != true }">
 				<div class="buttons">
 
-					<g:link class="follow" action="followUser" controller="userData"
+					<g:link class="follow" action="followUser" controller="user"
 						id="${profile?.id }" params="[follow:true]">
 						<g:message code="default.button.list.label" default="Follow" />
 					</g:link>
@@ -91,7 +91,7 @@
 			
 			<div class="buttons">
 			Following the User
-			<g:link class="follow" action="followUser" controller="userData"
+			<g:link class="follow" action="followUser" controller="user"
 						id="${profile?.id }"  params="[unFollow:true]">
 						<g:message code="default.button.list.label" default="UnFollow" />
 					</g:link>

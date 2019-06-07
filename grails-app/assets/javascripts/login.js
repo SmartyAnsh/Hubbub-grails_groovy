@@ -91,7 +91,7 @@ function checkValidateuserId()
 	else
 	{
 		$.ajax({
-			url : contextPath+"/UserData/checkUserIdAvailability",
+			url : "user/checkUserIdAvailability",
 			type : 'POST',
 			data : {
 				userId : userId
@@ -133,7 +133,7 @@ function validateUserId()
 	var userId = $('#userId').val()
 	var valid = false;
 	$.ajax({
-		url : "../UserData/checkUserIdAvailability",
+		url : "user/checkUserIdAvailability",
 		type : 'POST',
 		data : {
 			userId : userId

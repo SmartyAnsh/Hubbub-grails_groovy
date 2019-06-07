@@ -5,7 +5,7 @@
 <head>
 <meta name="layout" content="userLayout">
 <g:set var="entityName"
-	value="${message(code: 'userData.label', default: 'User')}" />
+	value="${message(code: 'user.label', default: 'User')}" />
 <title><g:if
 		test="${session.getAttribute('role').equals(Role.ADMIN) }">
 		<g:message code="default.create.label" args="[entityName]" />
@@ -30,9 +30,9 @@
 </head>
 <body>
 	<g:if test="${session.getAttribute('role').equals(Role.ADMIN) }">
-		<a href="#create-userData" class="skip" tabindex="-1"><g:message
+		<a href="#create-user" class="skip" tabindex="-1"><g:message
 				code="default.link.skip.label" default="Skip to content&hellip;" /></a>
-		<div id="create-userData" class="content scaffold-create" role="main">
+		<div id="create-user" class="content scaffold-create" role="main">
 			<h1>
 				<g:message code="default.create.label" args="[entityName]" />
 			</h1>
@@ -42,9 +42,9 @@
 				</div>
 			</g:if>
 			<div id="alert" style="text-indent: 2.2em; color: #CC0000;"></div>
-			<g:hasErrors bean="${userDataInstance}">
+			<g:hasErrors bean="${userInstance}">
 				<ul class="errors" role="alert">
-					<g:eachError bean="${userDataInstance}" var="error">
+					<g:eachError bean="${userInstance}" var="error">
 						<li
 							<g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message
 								error="${error}" /></li>

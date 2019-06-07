@@ -5,7 +5,7 @@
 <meta name="layout" content="userLayout" />
 <title>Search</title>
 <g:set var="entityName"
-	value="${message(code: 'userData.label', default: 'User')}" />
+	value="${message(code: 'user.label', default: 'User')}" />
 
 <script type="text/javascript">
 	function validateSearch() {
@@ -25,7 +25,7 @@
 </head>
 <body>
 	<div style="margin: 10px 10px 10px 20px;">
-		<a href="../userData/advSearch"
+		<a href="user/advSearch"
 			style="color: teal; font-weight: bold; float: right; margin-right: 40px">Advance
 			Search</a>
 		<h1>Search for Friends</h1>

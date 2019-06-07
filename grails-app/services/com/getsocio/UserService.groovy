@@ -126,10 +126,10 @@ class UserService {
         }
         def userFollowed = User.executeQuery('select user from User user join user.profile profile where profile.id=?', [params.id.toLong()])
         if (params.follow) {
-            user.addToFollowing(userFollowed.get(0)).save()
+            user.addToFollowing(userFollowed.get(0)).save(failOnError:true, flush:true)
         }
         if (params.unFollow) {
-            user.removeFromFollowing(userFollowed.get(0)).save()
+            user.removeFromFollowing(userFollowed.get(0)).save(failOnError:true, flush:true)
         }
     }
 
@@ -139,27 +139,26 @@ class UserService {
      * @param session
      * @return newUser
      */
-    def signUpDataSave(params, session) {
+    def signUpDataSave(params) {
         String pathOfDefaultImage = grailsApplication.config.grails.imagePath + "no-image.png"
         File defaultImage = new File(pathOfDefaultImage)
         def securityQues
+
         if (params?.securityQues.equals((String) SecurityQuestion.QUEST1)) {
-            securityQues = 'QUEST1'
+            securityQues = SecurityQuestion.get(1)
         } else if (params?.securityQues.equals((String) SecurityQuestion.QUEST2)) {
-            securityQues = 'QUEST2'
+            securityQues = SecurityQuestion.get(2)
         } else if (params?.securityQues.equals((String) SecurityQuestion.QUEST3)) {
-            securityQues = 'QUEST3'
+            securityQues = SecurityQuestion.get(3)
         }
+
         def newUser
-        def profile = new Profile(fullName: params?.signUpUsername, country: params?.country).save()
+        def profile = new Profile(fullName: params?.signUpUsername, country: params?.country).save(failOnError:true, flush:true)
         try {
-            newUser = new User(userId: params?.userId, password: params.signUpPassword, role: Role.USER, profile: profile, securityQues: securityQues, securityAns: params?.securityAnswer).save(flush: true)
-            session.setAttribute('user', newUser)
-            session.setAttribute('role', newUser?.role)
-            session.setAttribute('fullName', params?.signUpUsername)
+            newUser = new User(userId: params?.userId, password: params.signUpPassword, role: Role.USER, profile: profile, securityQues: securityQues, securityAns: params?.securityAnswer).save(flush: true, failOnError:true)
         }
         catch (Exception e) {
-            e.stackTrace
+            e.printStackTrace()
         }
         return newUser
     }

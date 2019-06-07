@@ -46,7 +46,7 @@ class ImageController {
         File defaultImage = new File(pathOfDefaultImage)
         if (defaultImage) {
             user.profile.photo = defaultImage?.getBytes()
-            user.save()
+            user.save(failOnError:true, flush:true)
             imageRemoved = true
         }
         def resp = [imageRemoved: imageRemoved]

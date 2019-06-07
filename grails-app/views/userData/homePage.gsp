@@ -152,7 +152,7 @@
 								<span class="postName"> ${postName }
 								</span><br>
 								<g:if test="${postUser.getAt(index) != "Me"}">
-									<g:link action="homePage" controller="userData"
+									<g:link action="homePage" controller="user"
 										params="[name:postUser.getAt(index)]">
 										<span style="color: gray; font-style: italic;"
 											class="userName" onmouseover="showProfile(this)" title="Check Wall"
@@ -176,7 +176,7 @@
 								--%>
 								<div class="comment hideOnLoad" id="commentDiv"></div>
 								<div id="spinner" class="hideOnLoad spinnerClass">
-									<img src="../images/spinner.gif">
+									<img src="images/spinner.gif">
 								</div>
 							</div>
 							<div style="float: left; width: 100%;">

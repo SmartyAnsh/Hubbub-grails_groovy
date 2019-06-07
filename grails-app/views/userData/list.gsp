@@ -5,14 +5,14 @@
 <head>
 <meta name="layout" content="userLayout">
 <g:set var="entityName"
-	value="${message(code: 'userData.label', default: 'User')}" />
+	value="${message(code: 'user.label', default: 'User')}" />
 <title><g:message code="default.list.label" args="[entityName]" /></title>
 </head>
 <body>
 	<g:if test="${session.getAttribute('role').equals(Role.ADMIN) }">
-		<a href="#list-userData" class="skip" tabindex="-1"><g:message
+		<a href="#list-user" class="skip" tabindex="-1"><g:message
 				code="default.link.skip.label" default="Skip to content&hellip;" /></a>
-		<div id="list-userData" class="content scaffold-list" role="main">
+		<div id="list-user" class="content scaffold-list" role="main">
 			<h1>
 				<g:message code="default.list.label" args="[entityName]" />
 			</h1>
@@ -26,51 +26,51 @@
 					<tr>
 
 						<g:sortableColumn property="userId"
-							title="${message(code: 'userData.userId.label', default: 'User Id')}" />
+							title="${message(code: 'user.userId.label', default: 'User Id')}" />
 
 						<g:sortableColumn property="password"
-							title="${message(code: 'userData.password.label', default: 'Password')}" />
+							title="${message(code: 'user.password.label', default: 'Password')}" />
 
 						<g:sortableColumn property="homepage"
-							title="${message(code: 'userData.homepage.label', default: 'Homepage')}" />
+							title="${message(code: 'user.homepage.label', default: 'Homepage')}" />
 
-						<th><g:message code="userData.profile.label"
+						<th><g:message code="user.profile.label"
 								default="Profile" /></th>
 
 						<g:sortableColumn property="dateCreated"
-							title="${message(code: 'userData.dateCreated.label', default: 'Date Created')}" />
+							title="${message(code: 'user.dateCreated.label', default: 'Date Created')}" />
 
 					</tr>
 				</thead>
 				<tbody>
-					<g:each in="${userDataInstanceList}" status="i"
-						var="userDataInstance">
+					<g:each in="${userInstanceList}" status="i"
+						var="userInstance">
 						<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-							<td><g:link action="show" id="${userDataInstance.id}">
-									${fieldValue(bean: userDataInstance, field: "userId")}
+							<td><g:link action="show" id="${userInstance.id}">
+									${fieldValue(bean: userInstance, field: "userId")}
 								</g:link></td>
 
 							<td><g:passwordField name="password"
-									value="${fieldValue(bean: userDataInstance, field: "password")}"
+									value="${fieldValue(bean: userInstance, field: "password")}"
 									disabled="disabled" /></td>
 
 							<td>
-								${fieldValue(bean: userDataInstance, field: "homepage")}
+								${fieldValue(bean: userInstance, field: "homepage")}
 							</td>
 
 							<td>
-								${fieldValue(bean: userDataInstance, field: "profile")}
+								${fieldValue(bean: userInstance, field: "profile")}
 							</td>
 
-							<td><g:formatDate date="${userDataInstance.dateCreated}" /></td>
+							<td><g:formatDate date="${userInstance.dateCreated}" /></td>
 
 						</tr>
 					</g:each>
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="${userDataInstanceTotal}" />
+				<g:paginate total="${userInstanceTotal}" />
 			</div>
 		</div>
 	</g:if>

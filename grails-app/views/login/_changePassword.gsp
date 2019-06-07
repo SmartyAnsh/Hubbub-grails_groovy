@@ -20,14 +20,14 @@ ${isChangedPassword }
 	
 	</td>
 	<td>
-	<g:link controller="userData" action="homePage" class="buttonLikeLink">Cancel</g:link>
+	<g:link controller="user" action="homePage" class="buttonLikeLink">Cancel</g:link>
 	</td>
 	</tr>
 </g:if>
 <g:elseif test="${isValid == false && isChangedPassword == true }">
 	<div style="margin: 20px 20px 20px 20%">
 		<span style="color: red">Wrong credentials</span> <br><br>
-		<g:link action="homePage" controller="userData">Click here</g:link>
+		<g:link action="homePage" controller="user">Click here</g:link>
 		to go back to HomePage
 	</div>
 </g:elseif>

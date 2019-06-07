@@ -44,7 +44,7 @@
 								onclick="fetchCommentsOnTimeLine(this);" value="Comments"
 								type="button" id="seeComments">
 							<div class="commentOnTimeline hideOnLoad" id="commentDiv"></div>
-							<div id="spinner" class="hideOnLoad"><img src="../images/spinner.gif" ></div>
+							<div id="spinner" class="hideOnLoad"><img src="images/spinner.gif" ></div>
 						</div>
 						<hr>
 

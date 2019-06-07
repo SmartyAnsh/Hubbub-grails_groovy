@@ -56,7 +56,7 @@
 						class="property-label"><g:message
 								code="post.user.label" default="User" /></span> <span
 						class="property-value" aria-labelledby="user-label"><g:link
-								controller="userData" action="show"
+								controller="user" action="show"
 								id="${postInstance?.user?.id}">
 								${postInstance?.user?.encodeAsHTML()}
 							</g:link></span></li>

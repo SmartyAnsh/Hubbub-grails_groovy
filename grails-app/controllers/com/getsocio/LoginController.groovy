@@ -21,9 +21,9 @@ class LoginController {
             session.setAttribute("fullName", userFullName)
             if (user.role == Role.ADMIN) {
                 session.setAttribute("adminView", true)
-                redirect(view: 'adminHomePage', controller: 'UserData')
+                redirect(view: 'adminHomePage', controller: 'user')
             } else {
-                redirect(action: 'homePage', controller: 'userData', params: [user: user])
+                redirect(action: 'homePage', controller: 'user', params: [user: user])
             }
 
         } else {

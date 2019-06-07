@@ -136,8 +136,8 @@ function fetchCommentsThroughAjax(postName, userName, commentDiv, $this, page) {
             else {
                 for (var i = 0; i < data.comments.length; i++) {
                     var id = data.commentId[i]
-                    var editImagePath = '<a href="#" onclick="if(!editComment(this,' + id + ')) return false"><img src="../images/edit_image.png" alt="edit" width="20px" height="20px" title="edit"/></a>'
-                    var deleteImagePath = '<a href="#" onclick="if(!confirmDeleteComment(this,' + id + ')) return false"><img src="../images/delete_image.png" alt="delete" width="20px" height="20px" title="delete"/></a>'
+                    var editImagePath = '<a href="#" onclick="if(!editComment(this,' + id + ')) return false"><img src="images/edit_image.png" alt="edit" width="20px" height="20px" title="edit"/></a>'
+                    var deleteImagePath = '<a href="#" onclick="if(!confirmDeleteComment(this,' + id + ')) return false"><img src="images/delete_image.png" alt="delete" width="20px" height="20px" title="delete"/></a>'
 
                     if (userName == data.byUser[i]) {
                         commentDiv.append('<li id="' + data.commentId[i] + '">' + data.comments[i] + ' -- ' + 'Me   ' + editImagePath + " " + deleteImagePath + '</li>');
@@ -179,8 +179,8 @@ function commentOnPostThroughAjax(postName, userName, comment, commentDiv, $this
                 commentDiv.html("")
                 for (var i = 0; i < data.fetchCommentResponse.comments.length; i++) {
                     var id = data.fetchCommentResponse.commentId[i]
-                    var editImagePath = '<a href="#" onclick="if(!editComment(this,' + id + ')) return false"><img src="../images/edit_image.png" alt="edit" width="20px" height="20px" title="edit"/></a>'
-                    var deleteImagePath = '<a href="#" onclick="if(!confirmDeleteComment(this,' + id + ')) return false"><img src="../images/delete_image.png" alt="delete" width="20px" height="20px" title="delete"/></a>'
+                    var editImagePath = '<a href="#" onclick="if(!editComment(this,' + id + ')) return false"><img src="images/edit_image.png" alt="edit" width="20px" height="20px" title="edit"/></a>'
+                    var deleteImagePath = '<a href="#" onclick="if(!confirmDeleteComment(this,' + id + ')) return false"><img src="images/delete_image.png" alt="delete" width="20px" height="20px" title="delete"/></a>'
                     if (userName == data.fetchCommentResponse.byUser[i]) {
                         commentDiv.append('<li>' + data.fetchCommentResponse.comments[i] + ' -- ' + 'Me   ' + editImagePath + " " + deleteImagePath + '</li>');
                     }
@@ -257,8 +257,8 @@ function editComment(obj, id) {
     var comment = commentData.substr(0, commentData.indexOf('--'))
     var rest = commentData.substr(commentData.indexOf('--'), commentData.length)
     var newComment = prompt(post, comment);
-    var editImagePath = '<a href="#" onclick="if(!editComment(this,' + id + ')) return false"><img src="../images/edit_image.png" alt="edit" width="20px" height="20px" title="edit"/></a>'
-    var deleteImagePath = '<a href="#" onclick="if(!confirmDeleteComment(this,' + id + ')) return false"><img src="../images/delete_image.png" alt="delete" width="20px" height="20px" title="delete"/></a>'
+    var editImagePath = '<a href="#" onclick="if(!editComment(this,' + id + ')) return false"><img src="images/edit_image.png" alt="edit" width="20px" height="20px" title="edit"/></a>'
+    var deleteImagePath = '<a href="#" onclick="if(!confirmDeleteComment(this,' + id + ')) return false"><img src="images/delete_image.png" alt="delete" width="20px" height="20px" title="delete"/></a>'
     commentDiv.find('#successMessageSpan').remove();
     commentDiv.find('#errorMessageSpan').remove();
     if (newComment != "" && newComment != null) {

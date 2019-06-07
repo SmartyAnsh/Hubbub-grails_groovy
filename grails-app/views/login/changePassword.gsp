@@ -75,7 +75,7 @@
 							url="[action:'checkCredentials',controller:'login']"
 							update="changePasswordTable" value="Submit" before="if(!validateChangePassword('changePassword')) return false"/></td>
 
-					<td><g:link controller="userData" action="homePage" class="buttonLikeLink">Cancel</g:link>
+					<td><g:link controller="user" action="homePage" class="buttonLikeLink">Cancel</g:link>
 					</td>
 				</tr>
 			</table>

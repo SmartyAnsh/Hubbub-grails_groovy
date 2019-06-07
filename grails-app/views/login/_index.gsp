@@ -111,7 +111,7 @@ p {
 		<%--<div id="controller-list" role="navigation">
 				<h2>Links:</h2>
 				<ul>
-			<li><g:link action="index" controller="UserData">User</g:link></li>
+			<li><g:link action="index" controller="user">User</g:link></li>
 			<li><g:link action="index" controller="profile">Profile</g:link></li>
 			<li><g:link action="index" controller="post">Post</g:link></li>
 			<li><g:link action="index" controller="tag">Tag</g:link></li>
